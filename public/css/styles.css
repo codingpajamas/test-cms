@@ -1,0 +1,6 @@
+.btn-loading {
+	background-image: url('../images/load-bar.gif');
+	background-position: 50%;
+	background-repeat: no-repeat;
+	text-indent: -500000px;
+}

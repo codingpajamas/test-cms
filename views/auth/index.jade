@@ -1,0 +1,90 @@
+extends ../layout
+
+block content
+	h4.text-center
+		| AuthPress
+	.row
+		.col-xs-12
+			form(action="/auth/login", method="POST", autocomplete="off", class="alert alert-success", id="loginForm")
+				.row
+					.col-xs-12 Login
+					.col-sm-5.col-xs-12.mb10
+						.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-user
+							input.form-control.loginUsername(placeholder="username", name="username", autocomplete="off")
+					.col-sm-4.col-xs-12.mb10
+						.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-lock
+							input.form-control.loginPassword(placeholder="password", name="password", type="password")
+					.col-sm-3.col-xs-12
+						input.btn-block.btn.btn-success.loginButton(type="submit", value="Login")
+				p.text-danger.hide.loginError
+
+	.row
+		.col-xs-12
+			form(action="/auth/register", method="POST", autocomplete="off", class="alert alert-info", id="registerForm")
+				.row
+					.col-xs-12 Register
+					.col-xs-12.col-sm-6.col-md-3.mb10
+						.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-user
+							input.form-control.registerUsername(placeholder="Username", name="username", autocomplete="off")
+					.col-xs-12.col-sm-6.col-md-3.mb10 
+						.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-lock
+							input.form-control.registerPassword(placeholder="Password", name="password", type="password")
+					.col-xs-12.col-sm-6.col-md-3.mb10 
+						.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-envelope
+							input.form-control.registerEmail(placeholder="Email", name="email")
+					.col-xs-12.col-sm-6.col-md-3.mb10 
+						.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-lock
+							input.form-control.registerFirstname(placeholder="Firstname", name="firstname")
+					.col-xs-12.col-sm-6.col-md-3.mb10 
+						.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-lock
+							input.form-control.registerLastname(placeholder="Lastname", name="lastname")
+					.col-xs-12
+						input.btn-block.btn.btn-info.registerButton(type="submit", value="Register")
+				p.text-danger.hide.registerError
+
+	.row
+		.col-xs-12
+			form(action="/auth/forgot", method="POST", autocomplete="off", class="alert alert-danger", id="forgotForm")
+				.row
+					.col-xs-12 forgot password - enter email
+					.col-sm-5.col-xs-12.mb10
+						.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-envelope
+							input.form-control.loginEmailname(placeholder="email", name="email", autocomplete="off")
+					.col-sm-3.col-xs-12
+						input.btn-block.btn.btn-danger.forgotButton(type="submit", value="Submit")
+				p.text-danger.hide.loginError
+
+	.row
+		.col-xs-12
+			form(action="/auth/reset/d8c3dfe6f05f76bbbce4673e6dca4ef69409eb8b", method="POST", autocomplete="off", class="alert alert-warning", id="resetForm")
+				.row
+					.col-xs-12 reset password - enter new password twice
+					.col-sm-4.col-xs-12.mb10
+						.input-group.mb10 
+							span.input-group-addon
+								i.glyphicon.glyphicon-lock
+							input.form-control.resetPassword(type="password", placeholder="password", name="password", autocomplete="off")
+					.col-sm-4.col-xs-12.mb10
+						.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-lock
+							input.form-control.resetPasswordConfirm(type="password", placeholder="confirm password", name="confirm", autocomplete="off")
+					.col-sm-4.col-xs-12
+						input.btn-block.btn.btn-warning.forgotButton(type="submit", value="Reset Password")
+				p.text-danger.hide.loginError

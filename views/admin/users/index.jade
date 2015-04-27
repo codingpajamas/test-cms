@@ -1,0 +1,49 @@
+extends ../../layout
+
+block content
+	h4
+		| Welcome @#{admin.username}
+
+	p
+		a.btn.btn-default.active(href="/admin/users")
+			| Users
+		a.btn.btn-default(href="/admin/blogs")
+			| Posts
+		a.btn.btn-default(href="/auth/logout")
+			| Logout
+
+	.row
+		.col-xs
+			table.table.table-bordered
+				thead
+					tr
+						th
+							| Name
+						th
+							| UserType
+						th
+							| Status
+						th
+							| Actions	
+				tbody
+					-if(users.length){
+						each user in users
+							tr
+								td
+									| #{user.firstname} #{user.lastname}	
+								td
+									| #{user.type}
+								td
+									| #{user.status}
+								td
+									a.btn.btn-xs.btn-default(href="/admin/users/#{user._id}")
+										| View
+									a.btn.btn-xs.btn-default(href="/admin/users/#{user._id}/edit")
+										| Edit
+									a.btn.btn-xs.btn-warning(href="/admin/users/#{user._id}/delete")
+										| Delete
+					-} else {
+						tr
+							td(colspan="4")
+								| No users found
+					-}

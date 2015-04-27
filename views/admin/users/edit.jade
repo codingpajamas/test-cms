@@ -1,0 +1,68 @@
+extends ../../layout
+
+block content
+	h4
+		| Welcome @#{admin.username}
+
+	p
+		a.btn.btn-default.active(href="/admin/users")
+			| Users
+		a.btn.btn-default(href="/admin/blogs")
+			| Posts
+		a.btn.btn-default(href="/auth/logout")
+			| Logout
+
+	form.form(method="POST", action="/admin/users/edit", enctype="multipart/form-data")
+		.col-sm-4
+			div#userProfileImgEdit
+				img(src="/profiles/#{user.avatar ? user.avatar : 'none.jpg'}" id="userProfileImage")
+				-if(user.avatar != 'none.jpg'){
+					a.btn.btn-danger(id="profileImgDeleteBtn")
+						i.glyphicon.glyphicon-remove
+				-}
+		.col-sm-6
+			input(type="hidden", name="id", value="#{user._id}")
+			input(type="hidden", name="avatar_old", value="#{user.avatar ? user.avatar : 'none.jpg'}")
+			p
+				label
+					| Username 
+				input.form-control(value=user.username, name="username", disabled="disabled")
+			p
+				label
+					| Firstname 
+				input.form-control(value=user.firstname, name="firstname")
+			p
+				label
+					| Lastname
+				input.form-control(value=user.lastname, name="lastname")
+			p
+				label
+					| About
+				textarea.form-control(name="about")
+					=user.about
+			p
+				label
+					| Email
+				input.form-control(value=user.email, name="email")
+			p
+				label
+					| Upload avatar
+				input.form-control(type="file" , name="avatar", accept="image/*")
+			p
+				label
+					| Type
+				select.form-control(name="type")
+					option() Select user type
+					option(value="admin", selected=('admin'==user.type)) admin
+					option(value="editor" selected=('editor'==user.type)) editor
+					option(value="writer" selected=('writer'==user.type)) writer
+			p
+				label
+					| Status
+				select.form-control(name="status")
+					option() Select user status
+					option(value="active", selected=('active'==user.status)) active
+					option(value="pending" selected=('inactive'==user.status)) inactive
+					option(value="pending" selected=('pending'==user.status)) pending
+			p.text-center
+				input.btn.btn-block.btn-success(type="submit", value="Save Changes")

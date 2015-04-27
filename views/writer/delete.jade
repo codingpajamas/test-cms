@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+	h4
+		| Delete User
+
+	p
+		| Are you sure you want to delete this post?
+	form.text-center(method="POST", action="/writer/blogs/delete")
+		input(type="hidden", name="id", value="#{post._id}")
+		button.btn.btn-danger
+			| Delete

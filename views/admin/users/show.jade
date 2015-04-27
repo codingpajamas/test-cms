@@ -1,0 +1,45 @@
+extends ../../layout
+
+block content
+	h4
+		| Welcome @#{admin.username}
+
+	p
+		a.btn.btn-default.active(href="/admin/users")
+			| Users
+		a.btn.btn-default(href="/admin/blogs")
+			| Posts
+		a.btn.btn-default(href="/auth/logout")
+			| Logout
+
+	.row
+		.col-xs
+			table.table.table-bordered
+				tbody
+					tr
+						th
+							| Username
+						td
+							| #{user.username}
+					tr
+						th
+							| Fullname
+						td
+							| #{user.firstname} #{user.lastname}	
+					tr
+						th
+							| User Type
+						td
+							| #{user.type}
+					tr
+						th
+							| Status
+						td
+							| #{user.status}
+				tfoot
+					tr
+						td.text-center(colspan="2")
+							a.btn.btn-xs.btn-default(href="/admin/users/#{user._id}/edit")
+								| Edit
+							a.btn.btn-xs.btn-warning(href="/admin/users/#{user._id}/edit")
+								| Delete Account

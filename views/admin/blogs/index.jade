@@ -1,0 +1,24 @@
+extends ../../layout
+
+block content
+	h4
+		| Welcome @#{admin.username}
+
+	a.btn.btn-default(href="/admin/users")
+		| Users
+	a.btn.btn-default.active(href="/admin/blogs")
+		| Posts
+	a.btn.btn-default(href="/auth/logout")
+		| Logout
+
+	.row
+		.col-xs
+			table.table
+				thead
+					tr
+						th
+							| Posts
+				tbody
+					tr
+						td
+							| This is post	

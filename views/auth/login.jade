@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+	h1.text-center
+		| Login
+
+	.row
+		.col-xs-12
+			-if(errorMsg.length){
+				div.alert.alert-danger
+					| #{errorMsg}
+			-}
+			form(action="/auth/login", method="POST", autocomplete="off")
+				p
+					label.show
+						| Email Address
+						input.form-control(placeholder="Enter a valid email", name="username", autocomplete="off")
+				p
+					label.show
+						| Password
+						input.form-control(placeholder="Type password", name="password", type="password")
+				p
+					input.btn-block.btn.btn-primary(type="submit", value="Login")

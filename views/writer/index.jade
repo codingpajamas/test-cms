@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+	h4
+		| Welcome @#{writter.username}
+
+	a.btn.btn-default(href="/writer/blogs")
+		| Posts
+	a.btn.btn-default(href="/auth/logout")
+		| Logout
+
+	.row
+		.col-xs
+			table.table
+				thead
+					tr
+						th
+							| Posts
+				tbody
+					-if(blogs){
+						each blog in blogs
+							tr
+								td #{blog.title}
+					-}

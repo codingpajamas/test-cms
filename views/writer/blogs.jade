@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+	h4
+		| Welcome @#{writter.username}
+
+	a.btn.btn-default(href="/writer/blogs")
+		| Posts
+	a.btn.btn-default(href="/auth/logout")
+		| Logout
+
+	.row
+		.col-xs
+			table.table
+				thead
+					tr
+						th.clearfix
+							| Posts
+							a.btn.btn-xs.pull-right.btn-default(href="/writer/blogs/add")
+								| Add
+
+				tbody
+					-if(blogs){
+						each blog in blogs
+							tr
+								td.clearfix 
+									| #{blog.title}
+									a.btn.btn-xs.pull-right.btn-default(href="/writer/blogs/#{blog._id}/edit")
+										| Edit
+									a.btn.btn-xs.pull-right.btn-warning(href="/writer/blogs/#{blog._id}/delete")
+										| Delete
+					-}

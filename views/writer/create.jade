@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+	h4
+		| Welcome @#{writter.username}
+
+	a.btn.btn-default(href="/writer/blogs")
+		| Posts
+	a.btn.btn-default(href="/auth/logout")
+		| Logout
+
+	.row
+		.col-xs
+			form(action="/writer/blogs/add", method="POST")
+				input.form-control(name="postTitle")
+				textarea.form-control(name="postBody")
+				select.form-control(name="status")
+					option(value="draft") Draft
+					option(value="published") Publish
+				input.btn.btn-primary(type="submit", value="Submit")
