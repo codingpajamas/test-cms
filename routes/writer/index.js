@@ -30,13 +30,17 @@ router.post('/blogs/add', function(req, res){
 		'id' : req.user._id
 	}
 
+	var arrTags = req.body.postTags ? req.body.postTags.split(',') : [];
+
 	Blog.create({
 		title : req.body.postTitle, 
 		body : req.body.postBody,  
 		status : req.body.status, 
 		url : prettyUrl,  
 		author : author,
-		createdOn: new Date, 
+		createdOn : new Date, 
+		category : req.body.category,
+		tags: arrTags
 	}, function(err, blog){
 		if(!err){ 
 			 console.log('success')
@@ -64,12 +68,17 @@ router.get('/blogs/:id/edit', function(req, res){
 
 //edit process
 router.post('/blogs/edit', function(req, res){ 
+
+	var arrTags = req.body.postTags ? req.body.postTags.split(',') : [];
+	
 	Blog.findByIdAndUpdate(
 		req.body._id, {
 		title : req.body.postTitle, 
 		body : req.body.postBody,
 		status : req.body.status,
 		modifiedOn : new Date, 
+		category : req.body.category,
+		tags: arrTags
 	}, function(err, blog){
 		if(!err){ 
 			console.log('success');

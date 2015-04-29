@@ -15,7 +15,27 @@ block content
 				input(type="hidden", name="_id", value="#{blog._id}")
 				input.form-control(name="postTitle", value="#{blog.title}")
 				textarea.form-control(name="postBody") #{blog.body}
+
+				-var strTags = blog.tags ? blog.tags.toString() : '';
+				input.form-control(name="postTags", placeholder="tags (comma separated)", value="#{strTags}")
+				p
+					label.btn.btn-info.btn-xs
+						| Review
+						input.postCategoy(type="checkbox", name="category" value="review") 
+					label.btn.btn-info.btn-xs
+						| Recipe
+						input.postCategoy(type="checkbox", name="category" value="recipe")
 				select.form-control(name="status")
 					option(value="draft" selected=('draft'==blog.status)) Draft
 					option(value="published" selected=('published'==blog.status)) Publish 
 				input.btn.btn-primary(type="submit", value="Submit")
+
+	script.
+		$(document).ready(function(){
+			var objBlog = !{JSON.stringify(blog)};
+			var arrBlogCategory = objBlog.category;
+
+			arrBlogCategory.forEach(function(v,i){
+				$('.postCategoy[value='+v+']').prop("checked", true);
+			})	
+		})

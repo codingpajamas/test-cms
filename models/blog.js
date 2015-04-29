@@ -3,9 +3,10 @@ var mongoose = require('mongoose');
 var blogSchema = new mongoose.Schema({
 	title: String, 
 	body: String, 
-	category: String, 
+	category: Array,
+	tags: Array,
 	status: String, 
-	url: String, 
+	url: {type: String, unique: true}, 
 	author: {
 		name : String,
 		id : String

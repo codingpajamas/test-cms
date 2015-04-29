@@ -12,8 +12,16 @@ block content
 	.row
 		.col-xs
 			form(action="/writer/blogs/add", method="POST")
-				input.form-control(name="postTitle")
-				textarea.form-control(name="postBody")
+				input.form-control(name="postTitle", placeholder="Title")
+				textarea.form-control(name="postBody", placeholder="Content")
+				input.form-control(name="postTags", placeholder="tags (comma separated)")
+				p
+					label.btn.btn-info.btn-xs
+						| Review
+						input(type="checkbox", name="category" value="review") 
+					label.btn.btn-info.btn-xs
+						| Recipe
+						input(type="checkbox", name="category" value="recipe")
 				select.form-control(name="status")
 					option(value="draft") Draft
 					option(value="published") Publish
