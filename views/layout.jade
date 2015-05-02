@@ -2,16 +2,97 @@ doctype html5
 html
 	head
 		title title
-		link(rel='stylesheet', href='/css/bootstrap.css')
-		link(rel='stylesheet', href='/css/styles.css')
+		link(rel='stylesheet', href='/css/bootstrap.css') 
+		link(rel='stylesheet', href='/css/materialize.css')
 		link(rel='stylesheet', href='/css/admin.css')
+		link(rel='stylesheet', href='/css/styles.css')
 		link(rel='stylesheet', href='/css/misc.css')
 		script(src='/javascripts/jquery.js')
 body
-	.container
-		.row.mb20
-			.col-md-12
+	.container-fluid.white.z-depth-1.mb20#mainHeader
+		.row.m0
+			.col-xs-12.col-sm-8
+				a#mainLogo.pad10.inblock
+					img(src="images/logo2.png" class="logo logo-xs" alt="")
+					span.header.teal-text.ml5 FOODSTOP
+			.col-xs-12.col-sm-4.text-right
+				input#mainSearchInput(type="text")
+
+	.container-fluid#mainContent
+		.row
+			.col-sm-12.col-md-9
 				block content
+				
+			.col-sm-12.col-md-3
+				.sidebarWidget.mb20
+					.pad10.text-center
+						a.ml5.mr5.btn.btn-floating.red.btn-flat.grey-text.text-lighten-5 y
+						a.ml5.mr5.btn.btn-floating.teal.btn-flat.grey-text.text-lighten-5 t
+						a.ml5.mr5.btn.btn-floating.blue.btn-flat.grey-text.text-lighten-5 f
+						a.ml5.mr5.btn.btn-floating.pink.btn-flat.grey-text.text-lighten-5 p
+
+				.sidebarWidget.mb20.white.sponsorBox
+					a
+						img(src="images/ad.png" class="img-full")
+						span.sponsorText Sponsor
+
+				.sidebarWidget.mb20
+					ul.collection.with-header
+						li.collection-header
+							h4 Hottest Posts
+						-for(var i=0; i<5; i++){
+						li.collection-item
+							p.m0
+								a.show(href="#") This is a very popular post.
+								small.grey-text.show.clearfix
+									i.glyphicon.glyphicon-calendar.mr5
+									| Apr 10, 2015 
+									span.pull-right
+										i.glyphicon.glyphicon-comment.mr5
+										| 10
+						-}
+
+				.sidebarWidget.mb20
+					ul.collection.with-header
+						li.collection-header
+							h4 Recent Comments
+						-for(var i=0; i<5; i++){
+						li.collection-item
+							p.m0.mb5.height-sm Hello there, Good morning. Can I comment on your post? Because...
+							p.m0.height-xs
+								small.grey-text
+									a(href="#") Edwardson Sarenas
+									span.ml5.mr5 commented on
+									a(href="#") This is a cool post
+						-}
+
+				.sidebarWidget.mb20.white.sponsorBox
+					a
+						img(src="images/ad.png" class="img-full")
+						span.sponsorText Sponsor
+
+				.sidebarWidget.mb20
+					ul.collection.with-header
+						li.collection-header
+							h4 Trending Resto
+						-for(var i=0; i<5; i++){
+						li.collection-item
+							.media
+								.media-left
+									img.media-object.avatar-xs(src="images/avatar.png")
+								.media-body
+									h6.clearfix.grey-text.text-darken-2.m0
+										a(href="#")
+											| The Best Restaurant
+										small.show SM MegaMall A, Ortigas
+										small
+											i.glyphicon.glyphicon-star.amber-text
+											i.glyphicon.glyphicon-star.amber-text
+											i.glyphicon.glyphicon-star.amber-text
+											i.glyphicon.glyphicon-star.amber-text
+											i.glyphicon.glyphicon-star
+						-}
+
 	script(src='/javascripts/angular.min.js')
 	script(src='/javascripts/bootstrap.js')
 	script(src='/javascripts/admin.js')

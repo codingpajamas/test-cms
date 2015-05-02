@@ -1,2 +1,48 @@
-h1
-	| Home[p]age
+extends ../layout
+
+block content
+	.row
+		.col-sm-6.col-md-4.postCardWrapper
+			.card.postCardBox
+				.card-image
+					a(href="#")
+						img(src="images/11.jpg")
+						span.card-title.titleOverlay
+						span.card-title.pad10 This is a post title
+				.card-content.clearfix
+					.media
+						.media-left
+							img.media-object.avatar-xs(src="images/avatar.png")
+						.media-body
+							h6.clearfix.grey-text.text-darken-1
+								| Edwardson Sarenas
+								small.pull-right.grey-text.text-darken-1
+									span
+										i.glyphicon.glyphicon-calendar.mr5
+										| Apr 20, 2015
+									span.ml15
+										i.glyphicon.glyphicon-comment.mr5
+										| 10
+		-for(var i=1; i<11; i++){
+		.col-sm-6.col-md-4.postCardWrapper
+			.card.postCardBox
+				.card-image
+					a(href="#")
+						img(src="images/#{i}.jpg")
+						span.card-title.titleOverlay
+						span.card-title.pad10 This is a post title
+				.card-content.clearfix
+					.media
+						.media-left
+							img.media-object.avatar-xs(src="images/avatar.png")
+						.media-body
+							h6.clearfix.grey-text.text-darken-1
+								| Edwardson Sarenas
+								small.pull-right.grey-text.text-darken-1
+									span
+										i.glyphicon.glyphicon-calendar.mr5
+										| Apr 20, 2015
+									span.ml15
+										i.glyphicon.glyphicon-comment.mr5
+										| 10
+		-}
