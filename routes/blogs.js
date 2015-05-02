@@ -12,4 +12,9 @@ router.get('/', function(req, res){
 	});
 });
 
+// display a single post
+router.get('/:blogurl', function(req, res){ 
+	res.render('blogs/show.jade', {});
+});
+
 module.exports = router;

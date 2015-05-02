@@ -80,6 +80,7 @@ a .titleOverlay {
 
 #postEntryImage {
 	height: 400px;
+	background-size: cover;
 }
 #postEntryTitle {
 	width: 100%;
