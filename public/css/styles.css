@@ -83,7 +83,7 @@ a .titleOverlay {
 }
 
 #postEntryImage {
-	height: 400px;
+	height: 500px;
 	background-size: cover;
 }
 #postEntryTitle {
@@ -111,4 +111,9 @@ a .titleOverlay {
 .card-content.post-content ul li {
   	display: list-item;
   	list-style-type: disc;
+}
+
+
+.postEntryCardBox #postEntry {
+	width: 100%;
 }
