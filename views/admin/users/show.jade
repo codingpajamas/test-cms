@@ -1,16 +1,6 @@
-extends ../../layout
+extends ../../layout-admin
 
 block content
-	h4
-		| Welcome @#{admin.username}
-
-	p
-		a.btn.btn-default.active(href="/admin/users")
-			| Users
-		a.btn.btn-default(href="/admin/blogs")
-			| Posts
-		a.btn.btn-default(href="/auth/logout")
-			| Logout
 
 	.row
 		.col-xs

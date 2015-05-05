@@ -1,0 +1,35 @@
+doctype html5
+html
+	head
+		title Admin - Foodstop
+		link(rel='stylesheet', href='/css/bootstrap.css') 
+		link(rel='stylesheet', href='/css/materialize.css')
+		link(rel='stylesheet', href='/css/admin.css')
+		link(rel='stylesheet', href='/css/styles.css')
+		link(rel='stylesheet', href='/css/misc.css')
+		script(src='/javascripts/jquery.js')
+body
+	.container-fluid.white.z-depth-1.mb20#mainHeader
+		.row.m0
+			.col-xs-12.col-sm-8.col-md-9
+				a#mainLogo.pad10.inblock
+					img(src="/images/logo2.png" class="logo logo-xs" alt="")
+					span.header.teal-text.ml5 @#{admin.username}
+			.col-xs-12.col-sm-4.col-md-3.text-right
+				div.mt5
+					a.ml5.mr5.btn.btn-default(href="/admin/users")
+						| Users
+					a.ml5.mr5.btn.btn-default(href="/admin/blogs")
+						| Posts
+					a.ml5.mr5.btn.btn-default(href="/auth/logout")
+						| Logout
+
+	.container-fluid#mainContent
+		.row
+			.col-sm-12
+				block content 
+
+	script(src='/javascripts/angular.min.js')
+	script(src='/javascripts/bootstrap.js')
+	script(src='/javascripts/admin.js')
+	script(src='/javascripts/scripts.js')

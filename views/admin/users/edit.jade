@@ -1,28 +1,18 @@
-extends ../../layout
+extends ../../layout-admin
 
 block content
-	h4
-		| Welcome @#{admin.username}
-
-	p
-		a.btn.btn-default.active(href="/admin/users")
-			| Users
-		a.btn.btn-default(href="/admin/blogs")
-			| Posts
-		a.btn.btn-default(href="/auth/logout")
-			| Logout
 
 	form.form(method="POST", action="/admin/users/edit", enctype="multipart/form-data")
 		.col-sm-4
 			div#userProfileImgEdit
-				img(src="/profiles/#{user.avatar ? user.avatar : 'none.jpg'}" id="userProfileImage")
-				-if(user.avatar != 'none.jpg'){
+				img(src="/profiles/#{user.avatar ? user.avatar : 'none.png'}" id="userProfileImage")
+				-if(user.avatar != 'none.png'){
 					a.btn.btn-danger(id="profileImgDeleteBtn")
 						i.glyphicon.glyphicon-remove
 				-}
 		.col-sm-6
 			input(type="hidden", name="id", value="#{user._id}")
-			input(type="hidden", name="avatar_old", value="#{user.avatar ? user.avatar : 'none.jpg'}")
+			input(type="hidden", name="avatar_old", value="#{user.avatar ? user.avatar : 'none.png'}")
 			p
 				label
 					| Username 
