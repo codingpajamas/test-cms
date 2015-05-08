@@ -1,12 +1,15 @@
-extends ../layout
+extends ../layout-writer
 
 block content
 
 	.row
 		.col-xs
-			form(action="/writer/blogs/add", method="POST")
+			form.white.pad20(action="/writer/blogs/add", method="POST")
 				input.form-control(name="postTitle", placeholder="Title")
-				textarea.form-control(name="postBody", placeholder="Content")
+				
+				textarea#blogTextArea.form-control.hide(name="postBody", placeholder="Content")
+				.editable#blogContentBox
+				
 				input.form-control(name="postTags", placeholder="tags (comma separated)")
 				p
 					label.btn.btn-info.btn-xs

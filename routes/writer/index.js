@@ -3,13 +3,13 @@ var router = express.Router();
 var Blog = require('../../models/blog');
 
 router.get('/', function(req, res){ 
-	res.render('writer/index.jade', {'writter':req.user});
+	res.render('writer/index.jade', {'admin':req.user});
 }); 
 
 router.get('/blogs', function(req, res){ 
 	Blog.find({}, {}, {sort: '-createdOn'}, function(err, blogs){
 		res.render('writer/blogs.jade', {
-			'writter':req.user,
+			'admin':req.user,
 			blogs : blogs
 		});
 	});
@@ -17,7 +17,7 @@ router.get('/blogs', function(req, res){
 
 // create form
 router.get('/blogs/add', function(req, res){ 
-	res.render('writer/create.jade', {'writter':req.user});
+	res.render('writer/create.jade', {'admin':req.user});
 }); 
 
 // create process

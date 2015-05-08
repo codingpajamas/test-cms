@@ -4,7 +4,7 @@ block content
 
 	.row
 		.col-xs
-			table.table.table-bordered
+			table.table.table-bordered.white
 				thead
 					tr
 						th
@@ -19,8 +19,6 @@ block content
 					-if(users.length){
 						each user in users
 							tr
-								td
-									| #{user.firstname} #{user.avatar}
 								td
 									| #{user.firstname} #{user.lastname}	
 								td
