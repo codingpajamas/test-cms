@@ -1,0 +1,85 @@
+.medium-toolbar-arrow-under:after {
+  top: 45px;
+  border-color: #57ad68 transparent transparent transparent; }
+
+.medium-toolbar-arrow-over:before {
+  top: -8px;
+  border-color: transparent transparent #57ad68 transparent; }
+
+.medium-editor-toolbar {
+  background-color: #57ad68; }
+  .medium-editor-toolbar li {
+    padding: 0; }
+    .medium-editor-toolbar li button {
+      min-width: 45px;
+      height: 45px;
+      border: none;
+      border-right: 1px solid #9ccea6;
+      background-color: transparent;
+      color: #fff;
+      -webkit-transition: background-color .2s ease-in, color .2s ease-in;
+              transition: background-color .2s ease-in, color .2s ease-in; }
+      .medium-editor-toolbar li button:hover {
+        background-color: #346a3f;
+        color: #fff; }
+    .medium-editor-toolbar li .medium-editor-button-active {
+      background-color: #23482a;
+      color: #fff; }
+    .medium-editor-toolbar li .medium-editor-button-last {
+      border-right: none; }
+
+.medium-editor-toolbar-form .medium-editor-toolbar-input {
+  height: 45px;
+  background: #57ad68;
+  color: #fff; }
+  .medium-editor-toolbar-form .medium-editor-toolbar-input::-webkit-input-placeholder {
+    color: #fff;
+    color: rgba(255, 255, 255, 0.8); }
+  .medium-editor-toolbar-form .medium-editor-toolbar-input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff;
+    color: rgba(255, 255, 255, 0.8); }
+  .medium-editor-toolbar-form .medium-editor-toolbar-input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+    color: rgba(255, 255, 255, 0.8); }
+  .medium-editor-toolbar-form .medium-editor-toolbar-input:-ms-input-placeholder {
+    color: #fff;
+    color: rgba(255, 255, 255, 0.8); }
+.medium-editor-toolbar-form a {
+  color: #fff; }
+
+.medium-editor-toolbar-anchor-preview {
+  background: #57ad68;
+  color: #fff; }
+
+.medium-editor-placeholder:after {
+  color: #fff; }
+.medium-editor-toolbar-form-anchor {
+  clear: both;
+  padding: 5px;
+  z-index: 122222;
+  position: relative;
+}
+.medium-editor-toobar-anchor-save {
+  float: left;
+  text-align: center;
+  width: 45%;
+  padding: 5px;
+  color: #18723d !important;
+}
+.medium-editor-toobar-anchor-close {
+  float: right;
+  text-align: center;
+  width: 45%;
+  padding: 5px;
+  color: #18723d !important;
+}
+.medium-editor-toolbar-anchor-input {
+  border: none !important;
+  background: #18723d !important;
+  margin: 0 !important;
+  padding: 0 3% !important;
+  color: #fff;
+  width: 94% !important;
+} 

@@ -3,22 +3,44 @@ extends ../layout-writer
 block content
 
 	.row
-		.col-xs
-			form.white.pad20(action="/writer/blogs/add", method="POST")
-				input.form-control(name="postTitle", placeholder="Title")
-				
-				textarea#blogTextArea.form-control.hide(name="postBody", placeholder="Content")
-				.editable#blogContentBox
-				
-				input.form-control(name="postTags", placeholder="tags (comma separated)")
-				p
-					label.btn.btn-info.btn-xs
-						| Review
-						input(type="checkbox", name="category" value="review") 
-					label.btn.btn-info.btn-xs
-						| Recipe
-						input(type="checkbox", name="category" value="recipe")
-				select.form-control(name="status")
-					option(value="draft") Draft
-					option(value="published") Publish
-				input.btn.btn-primary(type="submit", value="Submit")
+		.col-xs-12
+			form(action="/writer/blogs/add", method="POST")
+				.row
+					.col-md-8.white
+						.pad20
+							textarea#blogTextArea.form-control.hide(name="postBody", placeholder="Content")
+							.editable#blogContentBox
+					.col-md-4
+						.pad20
+							p.mb20
+								span.show.header Post Title
+								input.form-control(name="postTitle", placeholder="Title")
+							p.mb20
+								span.show.header Post Tags
+								input.form-control(name="postTags", placeholder="tags (comma separated)")
+							p.mb20
+								span.show.header Post Categories
+								span.pad20
+									input(type="checkbox", id="categoryReview", name="category" value="review")
+									label(for="categoryReview") Review
+								span.pad20
+									input(type="checkbox", id="categoryRecipe", name="category" value="recipe")
+									label(for="categoryRecipe") Recipe
+								span.pad20
+									input(type="checkbox", id="categoryRecipe", name="category" value="others")
+									label(for="categoryRecipe") Others
+							p.mb20.hide
+								span.show.header Post Status
+								select.form-control(name="statusx")
+									option(value="draft") Draft
+									option(value="published") Publish
+							p.mb20
+								span.show.header Post Status
+								span.pad20
+									input.with-gap#statusDraft(type="radio", name="status", value="draft")
+									label(for="statusDraft") Draft
+								span.pad20
+									input.with-gap#statusPublish(type="radio", name="status", value="publish")
+									label(for="statusPublish") Publish
+							p.mb20
+								input.btn.btn-primary.btn-block(type="submit", value="Submit")

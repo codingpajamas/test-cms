@@ -3,7 +3,7 @@ module.exports = function (app) {
     app.use('/blogs', require('./blogs')); 
     app.use('/auth', require('./auth'));
     app.use('/admin', isLoggedIn, require('./admin'));
-    app.use('/writer', require('./writer'));
+    app.use('/writer', isLoggedIn, require('./writer'));
     app.use('/editor', isLoggedIn, require('./editor'));
 
     function isLoggedIn(req, res, next) { 

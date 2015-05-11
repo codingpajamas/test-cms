@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router(); 
 var Blog = require('../../models/blog');
+var fs = require('fs');
 
 router.get('/', function(req, res){ 
 	res.render('writer/index.jade', {'admin':req.user});
@@ -110,6 +111,32 @@ router.post('/blogs/delete', function(req, res){
 			console.log(err)
 		}
 		res.redirect('/writer/blogs');
+	});
+}); 
+
+//upload process
+router.post('/blogs/upload', function(req, res){  
+	var uploadTS = new Date().getTime().toString();
+
+	if(req.files.file.size > 0){ 
+		var newPath = __dirname + "/../../public/uploads/blog-images/" + uploadTS + "-" + req.files.file.name; 
+		fs.renameSync(req.files.file.path, newPath); 
+		var uploadedFileName = uploadTS + "-" + req.files.file.name;  
+		res.send('/uploads/blog-images/' + uploadedFileName);
+	};
+}); 
+ 
+
+//upload delete process
+router.post('/blogs/deleteupload', function(req, res){  
+	var filePath = __dirname + "/../../public" + req.body.file;
+	fs.unlink(filePath, function(err){
+		if(!err){
+			res.send( 'Successfully deleted on disk ' + req.body.file);		
+		} else {
+			console.log(err);
+			res.send( 'Error deleting on disk ' + req.body.file);		
+		};
 	});
 }); 
  

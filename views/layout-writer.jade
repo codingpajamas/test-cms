@@ -5,12 +5,15 @@ html
 		link(rel='stylesheet', href='/css/bootstrap.min.css') 
 		link(rel='stylesheet', href='/css/materialize.css')
 		link(rel='stylesheet', href='/css/medium-editor.css')
+		link(rel='stylesheet', href='/css/medium-editor-flat.css')
+		link(rel='stylesheet', href='/css/medium-editor-insert-plugin.min.css')
 		link(rel='stylesheet', href='/css/admin.css')
 		link(rel='stylesheet', href='/css/styles.css')
 		link(rel='stylesheet', href='/css/misc.css')
 		script(src='/javascripts/jquery.js')
 		script(src='/javascripts/angular.min.js')
-		script(src='/javascripts/medium-editor.js')
+		script(src='/javascripts/medium-editor1.js')
+		script(src='/javascripts/medium-editor-insert-plugin.all.min.js')
 		script(src='/javascripts/bootstrap.js')
 		script(src='/javascripts/admin.js')
 body
@@ -19,7 +22,7 @@ body
 			.col-xs-12.col-sm-5.col-md-5
 				a#mainLogo.pad10.inblock
 					img(src="/images/logo2.png" class="logo logo-xs" alt="")
-					span.header.teal-text.ml5 
+					span.header.teal-text.ml5  @#{admin.username}
 			.col-xs-12.col-sm-7.col-md-7.text-right
 				div.mt5
 					a.ml5.mr5.btn.btn-default(href="/writer/blogs")
