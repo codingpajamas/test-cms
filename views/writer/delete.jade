@@ -1,12 +1,15 @@
 extends ../layout-writer
 
 block content
-	h4
-		| Delete User
+	.row
+		.col-sm-6.col-sm-push-3
+			.white.pad20
+				h4
+					| Delete Post
 
-	p
-		| Are you sure you want to delete this post?
-	form.text-center(method="POST", action="/writer/blogs/delete")
-		input(type="hidden", name="id", value="#{post._id}")
-		button.btn.btn-danger
-			| Delete
+				p
+					| Are you sure you want to delete this post?
+				form.text-center(method="POST", action="/writer/blogs/delete")
+					input(type="hidden", name="id", value="#{post._id}")
+					button.btn.btn-danger
+						| Delete

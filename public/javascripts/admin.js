@@ -10,17 +10,40 @@ jQuery(document).on('ready', function(){
 	});
 
 	// add image upload plugin to the medium editor
+	/*
 	$('.editable').mediumInsert({
 		editor: editor,
 		addons: {
 			images: {
 				imagesUploadScript: '/writer/blogs/upload', 
-				imagesDeleteScript: '/writer/blogs/deleteupload' 
+				imagesDeleteScript: '/writer/blogs/deleteupload',
+				captions: true,
+            	captionPlaceholder: 'Type caption for image (optional)'
 			},
 			embeds: {
 				oembedProxy: 'http://medium.iframe.ly/api/oembed?iframe=1'
 			},
 			tables: {}
+		}
+	});
+	*/
+	
+	$('.editable').mediumInsert({
+		editor: editor,
+		addons: {
+			images: {
+				label: '<span class="fa fa-camera"></span>',
+				uploadScript: '/writer/blogs/upload',
+				deleteScript: '/writer/blogs/deleteupload',
+				fileUploadOptions: { 
+	                url: '/writer/blogs/upload', 
+	                acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i 
+	            },
+	            uploadCompleted: function ($el, data) {
+	            	console.log($el);
+	            	console.log(data);
+	            }
+			}
 		}
 	});
 

@@ -3,9 +3,10 @@ var router = express.Router();
 var Blog = require('../models/blog');
 
 router.get('/', function(req, res){ 
-	Blog.find({},{},{}, function(err, blogs){
+	Blog.find({},{},{}, function(err, blogs){ 
 		if(!err){
-			res.render('blogs/index.jade', {});
+			console.log(blogs);
+			res.render('blogs/index.jade', {bloglist:blogs});
 		} else {
 			res.send(err);
 		}

@@ -1,2 +1,36 @@
-h1
-	| Welcome to my blog
+extends ../layout
+
+block content
+	.row
+		-if(bloglist && bloglist.length > 0) {
+			each blog in bloglist
+				p #{blog.body}
+				.col-sm-6.col-md-4.postCardWrapper
+					.card.postCardBox
+						.card-image
+							a(href="/blogs/asd")
+								img(src="/images/#{i}.jpg")
+								span.card-title.titleOverlay
+								span.card-title.pad10 This is a post title
+						
+						.card-content.clearfix
+						.media
+							.media-left
+								img.media-object.avatar-xs(src="/images/avatar.png")
+							.media-body
+								h6.clearfix.grey-text.text-darken-1.m0
+									span.pull-left 
+										span.show Edwardson Sarenas
+										small.show written in 
+											a(href="#") Category
+									small.pull-right.grey-text.text-darken-1.mt5
+										span
+											i.glyphicon.glyphicon-calendar.mr5
+												| Apr 20, 2015
+											span.ml15
+												i.glyphicon.glyphicon-comment.mr5
+												| 10
+		-} else {
+			.col-xs-12
+				p No posts found.
+		-}

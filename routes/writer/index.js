@@ -60,7 +60,7 @@ router.get('/blogs/:id/edit', function(req, res){
 			res.redirect('/writer/blogs');
 		} else {  
 			res.render('writer/edit.jade', {
-				'writter':req.user,
+				'admin':req.user,
 				blog : blog
 			});
 		}
@@ -95,7 +95,7 @@ router.get('/blogs/:id/delete', function(req, res){
 	Blog.findOne({'_id':req.params.id},{},{}, function(err, post){
 		if(!err){
 			res.render('writer/delete.jade', {
-				'writter':req.user,
+				'admin':req.user,
 				'post':post
 			});
 		} else {
@@ -117,13 +117,21 @@ router.post('/blogs/delete', function(req, res){
 //upload process
 router.post('/blogs/upload', function(req, res){  
 	var uploadTS = new Date().getTime().toString();
-
-	if(req.files.file.size > 0){ 
-		var newPath = __dirname + "/../../public/uploads/blog-images/" + uploadTS + "-" + req.files.file.name; 
-		fs.renameSync(req.files.file.path, newPath); 
-		var uploadedFileName = uploadTS + "-" + req.files.file.name;  
-		res.send('/uploads/blog-images/' + uploadedFileName);
+	var objFile = req.files['files[]']; 
+	 
+	if(objFile.size > 0){ 
+		var newPath = __dirname + "/../../public/uploads/blog-images/" + uploadTS + "-" + objFile.name; 
+		fs.renameSync(objFile.path, newPath); 
+		var uploadedFileName = uploadTS + "-" + objFile.name;  
+		res.json({
+			"files":[
+				{
+					"url":'/uploads/blog-images/' + uploadedFileName
+				}
+			]
+		});
 	};
+	 
 }); 
  
 
